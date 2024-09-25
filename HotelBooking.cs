@@ -1,4 +1,8 @@
-﻿namespace TheOOPHotel;
+﻿//Gruppuppgift - The OOP hotel
+//Mauricio Corte
+//.NET24
+
+namespace TheOOPHotel;
 
 public class HotelBooking
 {
@@ -82,7 +86,5 @@ public class HotelBooking
     public void DisplayTotalPrice()
     {
         Console.WriteLine($"Your stay at the OOP hotel will cost you {CalculatePrice()} Bytes.");
-
     }
-
 }

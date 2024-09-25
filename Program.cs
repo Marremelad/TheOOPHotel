@@ -8,24 +8,23 @@ class HotelBooking
     private DateTime _endDate;
     private string? _name;
     private int _pricePerNight = 100;
-    private int _totalPrice;
-    
+
     // Constructor.
     public HotelBooking(string? guestName, DateTime startDate, int lengthOfStayInDays)
     {
-        
         this._name = guestName;
         this._startDate = startDate;
         this._endDate = _startDate.AddDays(lengthOfStayInDays);
-        this._totalPrice = (_pricePerNight * lengthOfStayInDays);
     }
 
+    // Getter and setter for _name.
     public string? Name
     {
         get => _name;
         set => _name = value;
     }
 
+    // setter for _startDate.
     public DateTime StartDate
     {
         get => _startDate;
@@ -35,10 +34,12 @@ class HotelBooking
             {
                 throw new ArgumentException("Start date can not be in the past.");
             }
+
             _startDate = value;
         }
     }
 
+    // Getter and setter for _endDate.
     public DateTime EndDate
     {
         get => _endDate;
@@ -48,34 +49,47 @@ class HotelBooking
             {
                 throw new ArgumentException("End date can not be before start date.");
             }
+
             _endDate = value;
         }
     }
+
+    //Display booking info.
     public void DisplayBookingInfo()
     {
         Console.WriteLine(_endDate.ToString("yyyy-MM-dd"));
     }
 
+    // Change start date.
     public void ChangeStartDate(DateTime startDate)
     {
         StartDate = startDate;
     }
-    
-    public void ChangeEndDate(int lenghtOfStayInDays)
+
+    // Change end date.
+    public void ChangeEndDate(int lengthOfStayInDays)
     {
-        if (lenghtOfStayInDays > 0)
+        if (lengthOfStayInDays > 0)
         {
-            EndDate = _startDate.AddDays(lenghtOfStayInDays);
+            EndDate = _startDate.AddDays(lengthOfStayInDays);
         }
         else throw new ArgumentException("Length of stay can not be less than one day.");
     }
 
+    // Calculate price.
+    public int CalculatePrice()
+    {
+        int lengthOfStayInDays = (_endDate - _startDate).Days;
+        return _pricePerNight * lengthOfStayInDays;
+    }
+
+    // Display total price.
     public void DisplayTotalPrice()
     {
-        Console.WriteLine($"Your stay at the OOP hotel will cost you {_totalPrice} bytes.");
+        Console.WriteLine($"Your stay at the OOP hotel will cost you {CalculatePrice()} Bytes.");
+
     }
-    
-} 
+}
 
 class Program
 {
@@ -89,10 +103,11 @@ class Program
         DateTime currentDate = DateTime.Now;
         Console.WriteLine($"Please enter the desired start of your booking date using this format: {currentDate:yyyy-MM-dd}");
         
+        // Get start date.
         DateTime parsedDate;
         while (true)
         {
-            string? dateString = Console.ReadLine(); // Ensure specifik format.
+            string? dateString = Console.ReadLine(); // Ensure specific format.
             bool isValid = DateTime.TryParseExact(dateString, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out parsedDate);
 
             
@@ -128,7 +143,8 @@ class Program
         // Create instance of HotelBooking object.
         HotelBooking booking = new HotelBooking(name, parsedDate, lengthOfStayInDays);
         booking.DisplayTotalPrice();
-        
+        booking.ChangeEndDate(3);
+        booking.DisplayTotalPrice();
 
     }
 }

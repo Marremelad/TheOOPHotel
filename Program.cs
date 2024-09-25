@@ -67,13 +67,9 @@ class HotelBooking
     }
 
     // Change end date.
-    public void ChangeEndDate(int lengthOfStayInDays)
+    public void ChangeEndDate(DateTime endDate)
     {
-        if (lengthOfStayInDays > 0)
-        {
-            EndDate = _startDate.AddDays(lengthOfStayInDays);
-        }
-        else throw new ArgumentException("Length of stay can not be less than one day.");
+        EndDate = endDate;
     }
 
     // Calculate price.
@@ -143,7 +139,7 @@ class Program
         // Create instance of HotelBooking object.
         HotelBooking booking = new HotelBooking(name, parsedDate, lengthOfStayInDays);
         booking.DisplayTotalPrice();
-        booking.ChangeEndDate(3);
+        booking.ChangeEndDate(new DateTime(2024, 09, 27 ));
         booking.DisplayTotalPrice();
 
     }

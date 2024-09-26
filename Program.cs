@@ -13,7 +13,7 @@ class Program
         // Get name.
         string? GetName()
         {
-            Console.Write("Hello, and welcome to the OOP hotel.\nPlease enter your name: ");
+            Console.Write("Hello and welcome to the OOP hotel.\nPlease enter your name: ");
             string? name;
             
             while (true)

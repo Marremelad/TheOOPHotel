@@ -6,12 +6,12 @@ namespace TheOOPHotel;
 public class Person
 {
     // Class fields.
-    private string? _name;
-    private string? _email;
-    private string? _phoneNumber;
+    private string _name;
+    private string _email;
+    private string _phoneNumber;
     
     // Constructor.
-    public Person(string? name, string? email, string? phoneNumber)
+    public Person(string name, string email, string phoneNumber)
     {
         _name = name;
         _email = email;
@@ -35,7 +35,7 @@ public class Person
     }
     
     // Getter and setter for _email.
-    public string? Email
+    public string Email
     {
         get => _email;
         set
@@ -57,7 +57,7 @@ public class Person
     }
     
     // Getter and setter for _phoneNumber.
-    public string? PhoneNumber
+    public string PhoneNumber
     {
         get => _phoneNumber;
         set

@@ -1,19 +1,71 @@
-﻿
-using System.Runtime.InteropServices.JavaScript;
+﻿//Gruppuppgift - The OOP hotel
+//Mauricio Corte
+//.NET24
+
+using System.Text.RegularExpressions;
 
 namespace TheOOPHotel;
 
 class Program
 {
-    
-    
     static void Main(string[] args)
     {
         // Get name.
         string? GetName()
         {
             Console.Write("Hello, and welcome to the OOP hotel.\nPlease enter your name: ");
-            return Console.ReadLine();
+            string? name;
+            
+            while (true)
+            {
+                name = Console.ReadLine();
+                if (string.IsNullOrEmpty(name))
+                {
+                    Console.WriteLine("Name can not be empty.");
+                    continue;
+                }
+                break;
+            }
+
+            return name;
+
+        }
+        
+        // Get email.
+        string GetEmail()
+        {
+            Console.WriteLine("Please enter your email.");
+           
+            Regex regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$"); // Regular expression pattern for email validation
+            string? email;
+
+            while (true)
+            {
+                email = Console.ReadLine();
+
+                if (string.IsNullOrEmpty(email))
+                {
+                    Console.WriteLine("Email can not be empty.");
+                    continue;
+                }
+
+                if (regex.IsMatch(email))
+                {
+                    break; // Exit loop if email format is correct
+                }
+                else Console.WriteLine("Invalid email format. Please try again.");
+
+            }
+
+            return email;
+        }
+        
+        // Get phone number.
+        string? GetPhoneNumber()
+        {
+            Console.Write("Please enter your phone number:");
+            string? phoneNumber = Console.ReadLine();
+            return phoneNumber;
         }
         
         // Get start date.
@@ -67,10 +119,12 @@ class Program
         }
         
         // Create instance of HotelBooking object.
-        HotelBooking booking = new HotelBooking(GetName(), GetStartDate(), GetLengthOfStayInDays());
-        booking.DisplayTotalPrice();
-        booking.ChangeEndDate(new DateTime(2024, 09, 27 ));
-        booking.DisplayTotalPrice();
+
+        string? name = GetName();
+        // HotelBooking booking = new HotelBooking(GetName(), GetStartDate(), GetLengthOfStayInDays());
+        // booking.DisplayTotalPrice();
+        // booking.ChangeEndDate(new DateTime(2024, 09, 27 ));
+        // booking.DisplayTotalPrice();
 
     }
     

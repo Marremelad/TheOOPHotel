@@ -1,7 +1,4 @@
-﻿//Gruppuppgift - The OOP hotel
-//Mauricio Corte
-//.NET24
-
+﻿
 namespace TheOOPHotel;
 
 public class HotelBooking

@@ -57,7 +57,9 @@ public class HotelBooking
     //Display booking info.
     public void DisplayBookingInfo()
     {
-        Console.WriteLine(_endDate.ToString("yyyy-MM-dd"));
+        Console.WriteLine($"Guest name: {_guest.Name}.\nContact information:\nEmail: {_guest.Email}.\nPhone number: {_guest.PhoneNumber}");
+        Console.WriteLine($"Your stay at The OOP Hotel begins {_startDate:yyyy-MM-dd} and ends {_endDate:yyyy-MM-dd}.");
+        DisplayTotalPrice();
     }
 
     // Change start date.

@@ -68,7 +68,7 @@ public class Person
                 throw new ArgumentException("Phone number can not be empty.");
             }
 
-            Regex regex = new Regex(@"^\+?[1-9]\d{1,14}$|^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$");
+            Regex regex = new Regex(@"^\+?[1-9]\d{1,14}$|^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$"); // Check for valid number format with regular expression.
             if (!regex.IsMatch(value))
             {
                 throw new ArgumentException($"Invalid number format.");

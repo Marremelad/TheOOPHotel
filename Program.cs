@@ -35,7 +35,7 @@ class Program
         {
             Console.Write("Please enter your email: ");
            
-            Regex regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$"); // Regular expression pattern for email validation
+            Regex regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$"); // Regular expression pattern for email validation.
             string? email;
 
             while (true)
@@ -64,7 +64,7 @@ class Program
         {
             Console.Write("Please enter your phone number: ");
             
-            Regex regex = new Regex(@"^\+?[1-9]\d{1,14}$|^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$");
+            Regex regex = new Regex(@"^\+?[1-9]\d{1,14}$|^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$");  // Regular expression for common phone number patterns.
             string? phoneNumber;
             
             while (true)

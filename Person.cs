@@ -4,12 +4,12 @@ namespace TheOOPHotel;
 
 public class Person
 {
-    private string? _name;
-    private string? _email;
-    private string? _phoneNumber;
+    public string? _name;
+    public string? _email;
+    public string? _phoneNumber;
 
 
-    public Person(string? name, string email, string phoneNumber)
+    public Person(string? name, string? email, string? phoneNumber)
     {
         _name = name;
         _email = email;

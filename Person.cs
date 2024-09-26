@@ -37,7 +37,6 @@ public class Person
     // Getter and setter for _email.
     public string? Email
     {
-        
         get => _email;
         set
         {

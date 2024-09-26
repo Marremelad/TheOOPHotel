@@ -6,24 +6,18 @@ public class HotelBooking
     // Class fields.
     private DateTime _startDate;
     private DateTime _endDate;
-    private string? _name;
+    private Person _guest;
     private int _pricePerNight = 100;
 
     // Constructor.
-    public HotelBooking(string? guestName, DateTime startDate, int lengthOfStayInDays)
+    public HotelBooking(Person guest, DateTime startDate, int lengthOfStayInDays)
     {
-        this._name = guestName;
+        this._guest = guest;
         this._startDate = startDate;
         this._endDate = _startDate.AddDays(lengthOfStayInDays);
     }
 
-    // Getter and setter for _name.
-    public string? Name
-    {
-        get => _name;
-        set => _name = value;
-    }
-
+    
     // setter for _startDate.
     public DateTime StartDate
     {

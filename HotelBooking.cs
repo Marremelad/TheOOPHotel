@@ -16,9 +16,15 @@ public class HotelBooking
         this._startDate = startDate;
         this._endDate = _startDate.AddDays(lengthOfStayInDays);
     }
-
     
-    // setter for _startDate.
+    // Getter and setter for _guest.
+    public Person Guest
+    {
+        get => _guest;
+        set => _guest = value;
+    }
+
+    // Getter and setter for _startDate.
     public DateTime StartDate
     {
         get => _startDate;

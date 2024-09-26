@@ -33,7 +33,7 @@ class Program
         // Get email.
         string GetEmail()
         {
-            Console.WriteLine("Please enter your email.");
+            Console.Write("Please enter your email: ");
            
             Regex regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$"); // Regular expression pattern for email validation
             string? email;
@@ -52,7 +52,7 @@ class Program
                 {
                     break; // Exit loop if email format is correct
                 }
-                else Console.WriteLine("Invalid email format. Please try again.");
+                else Console.Write("Invalid email format. Please try again: ");
 
             }
 
@@ -62,7 +62,7 @@ class Program
         // Get phone number.
         string? GetPhoneNumber()
         {
-            Console.Write("Please enter your phone number:");
+            Console.Write("Please enter your phone number: ");
             
             Regex regex = new Regex(@"^\+?[1-9]\d{1,14}$|^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$");
             string? phoneNumber;
@@ -81,7 +81,7 @@ class Program
                  {
                      break;
                  }
-                 else Console.WriteLine("Invalid number format.");
+                 else Console.Write("Invalid number format. Please try again: ");
             }
             
             return phoneNumber;
@@ -137,14 +137,18 @@ class Program
             return lengthOfStayInDays;
         }
         
-        // Create instance of HotelBooking object.
-
+        //Create instance of Person object.
         Person person = new Person(GetName(), GetEmail(), GetPhoneNumber());
-
+        
+        // Create instance of HotelBooking object.
         HotelBooking booking = new HotelBooking(person, GetStartDate(), GetLengthOfStayInDays());
 
-        person.Name = "";
-        Console.WriteLine("Hello");
+        Console.WriteLine(booking.StartDate);
+        Console.WriteLine(booking.EndDate);
+        Console.WriteLine(booking.Guest.Name);
+        Console.WriteLine(booking.Guest.Email);
+        Console.WriteLine(booking.Guest.PhoneNumber);
+        booking.DisplayBookingInfo();
     }
     
 }

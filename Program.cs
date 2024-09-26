@@ -120,12 +120,10 @@ class Program
         
         // Create instance of HotelBooking object.
 
-        string? name = GetName();
-        // HotelBooking booking = new HotelBooking(GetName(), GetStartDate(), GetLengthOfStayInDays());
-        // booking.DisplayTotalPrice();
-        // booking.ChangeEndDate(new DateTime(2024, 09, 27 ));
-        // booking.DisplayTotalPrice();
-
+        Person person = new Person(GetName(), GetEmail(), GetPhoneNumber());
+        Console.WriteLine(person._name);
+        Console.WriteLine(person._email);
+        Console.WriteLine(person._phoneNumber);
     }
     
 }

@@ -28,7 +28,6 @@ class Program
             }
 
             return name;
-
         }
         
         // Get email.
@@ -64,7 +63,27 @@ class Program
         string? GetPhoneNumber()
         {
             Console.Write("Please enter your phone number:");
-            string? phoneNumber = Console.ReadLine();
+            
+            Regex regex = new Regex(@"^\+?[1-9]\d{1,14}$|^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$");
+            string? phoneNumber;
+            
+            while (true)
+            {
+                 phoneNumber = Console.ReadLine();
+
+                 if (string.IsNullOrEmpty(phoneNumber))
+                 {
+                     Console.WriteLine("Phone number can not be empty.");
+                     continue;
+                 }
+
+                 if (regex.IsMatch(phoneNumber))
+                 {
+                     break;
+                 }
+                 else Console.WriteLine("Invalid number format.");
+            }
+            
             return phoneNumber;
         }
         
@@ -123,6 +142,9 @@ class Program
         Person person = new Person(GetName(), GetEmail(), GetPhoneNumber());
 
         HotelBooking booking = new HotelBooking(person, GetStartDate(), GetLengthOfStayInDays());
+
+        person.Name = "";
+        Console.WriteLine("Hello");
     }
     
 }

@@ -56,4 +56,23 @@ public class Person
             _email = value;
         }
     }
+    
+    // Getter and setter for _phoneNumber.
+    public string? PhoneNumber
+    {
+        get => _phoneNumber;
+        set
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException("Phone number can not be empty.");
+            }
+
+            Regex regex = new Regex(@"^\+?[1-9]\d{1,14}$|^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$");
+            if (!regex.IsMatch(value))
+            {
+                throw new ArgumentException($"Invalid number format.");
+            }
+        }
+    }
 }

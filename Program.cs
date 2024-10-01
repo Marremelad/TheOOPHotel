@@ -6,7 +6,7 @@ namespace TheOOPHotel;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         //Create instance of Person object.
         Person person = new Person(UserInput.GetName(), UserInput.GetEmail(), UserInput.GetPhoneNumber());

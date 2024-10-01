@@ -4,25 +4,21 @@ namespace TheOOPHotel;
 public class HotelBooking
 {
     // Class fields.
+    public Person Guest { get; set; }
     private DateTime _startDate;
     private DateTime _endDate;
-    private Person _guest;
-    private int _pricePerNight = 100;
+    private readonly int _pricePerNight = 100;
 
     // Constructor.
     public HotelBooking(Person guest, DateTime startDate, int lengthOfStayInDays)
     {
-        this._guest = guest;
-        this._startDate = startDate;
-        this._endDate = _startDate.AddDays(lengthOfStayInDays);
+        Guest = guest;
+        StartDate = startDate;
+        EndDate = _startDate.AddDays(lengthOfStayInDays);
     }
     
     // Getter and setter for _guest.
-    public Person Guest
-    {
-        get => _guest;
-        set => _guest = value;
-    }
+    
 
     // Getter and setter for _startDate.
     public DateTime StartDate
@@ -57,8 +53,8 @@ public class HotelBooking
     //Display booking info.
     public void DisplayBookingInfo()
     {
-        Console.WriteLine($"\nContact information-\nGuest name: {_guest.Name}\nEmail: {_guest.Email}\nPhone number: {_guest.PhoneNumber}");
-        Console.WriteLine($"\nYour stay at The OOP Hotel begins {_startDate:yyyy-MM-dd} and ends {_endDate:yyyy-MM-dd}");
+        Console.WriteLine($"\nContact information-\nGuest name: {Guest.Name}\nEmail: {Guest.Email}\nPhone number: {Guest.PhoneNumber}");
+        Console.WriteLine($"\nYour stay at The OOP Hotel begins {StartDate:yyyy-MM-dd} and ends {EndDate:yyyy-MM-dd}");
         DisplayTotalPrice();
     }
 
@@ -75,14 +71,14 @@ public class HotelBooking
     }
 
     // Calculate price.
-    public int CalculatePrice()
+    private int CalculatePrice()
     {
-        int lengthOfStayInDays = (_endDate - _startDate).Days;
+        int lengthOfStayInDays = (EndDate - StartDate).Days;
         return _pricePerNight * lengthOfStayInDays;
     }
 
     // Display total price.
-    public void DisplayTotalPrice()
+    private void DisplayTotalPrice()
     {
         Console.WriteLine($"Your stay at the OOP hotel will cost you {CalculatePrice()} Bytes.");
     }

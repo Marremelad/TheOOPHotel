@@ -26,7 +26,7 @@ public class HotelBooking
         get => _startDate;
         set
         {
-            if (value < DateTime.Now)
+            if (value < DateTime.Now.Date)
             {
                 throw new ArgumentException("Start date can not be in the past.");
             }

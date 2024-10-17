@@ -30,7 +30,7 @@ Your stay at the OOP hotel will cost you 1000 Bytes.
 * .NET 8 or higher
 
 ### Get started
-If you are using Visual Studio or any other IDE with an integrated repo-cloning function use it with this URL - https://github.com/Marremelad/TheOOPHotel
+If you are using Visual Studio or any other IDE with an integrated repo-cloning function use it with this URL - https://github.com/Marremelad/TheOOPHotel.git
 then open the solution and run the program.
 
 Else, do the following.

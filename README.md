@@ -1,7 +1,7 @@
 # The OOP Hotel 🏢
 
 ## Description
-This is a group project made by me and my [classmate](https://github.com/Anton-Dahlstrom). The application features simple hotel booking system in the console.
+This is a group project made by me and my [classmate](https://github.com/Anton-Dahlstrom). The application features a simple hotel booking system in the console.
 
 ### Features
 * Display the users booking information based on given parameters.
